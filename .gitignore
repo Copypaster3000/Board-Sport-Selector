@@ -1,0 +1,9 @@
+# created by virtualenv automatically
+
+__pycache__/
+
+.vscode
+
+surfpy/
+
+lib/
