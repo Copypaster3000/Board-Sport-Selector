@@ -8,4 +8,12 @@ surfpy/
 
 lib/
 
-,venv
+.venv
+
+lib/ 
+
+bin/
+
+share/
+
+
