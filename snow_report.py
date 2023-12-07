@@ -16,11 +16,13 @@ class snow_report():
 
         self.snow_depth = condition.condition()
         self.snow_depth.weight = 10
+        self.snow_depth.boundaries = [30, 40, 60, 20000, 20000, 20000]
         self.temperature = condition.condition()
         self.temperature.weight = 15
         self.temperature.boundaries = [9, 12, 15, 31, 32, 40]
         self.cloud_cover = condition.condition()
         self.cloud_cover.weight = 10
+        self.cloud_cover.boundaries = [25, 15, 0, 15, 25, 60]
         self.rain = condition.condition()
         self.rain.weight = 15
         self.rain.boundaries = [0, 0, 0, 0, 0, 0]
