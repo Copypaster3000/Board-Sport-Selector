@@ -13,8 +13,6 @@ class report_score():
         score = 0
         session_length = time[1] - time[0]
 
-
-
         #inside boundary [2] & [3] = perfect so 1, inside [1] & [4] = .75, inside [0] & [5] = .5, outside [0] & [5] = 0
         for item in condition.weather[time[0]:time[1]]:
             if (item >= condition.boundaries[2] and item <= condition.boundaries[3]): #if condition is inside perfect boundaries

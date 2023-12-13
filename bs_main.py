@@ -13,8 +13,10 @@ time = front_object.get_session()
 
 #surf_score = front_object.return_surf_score(time)
 
-snow_score = front_object.return_snow_score(time)
+#snow_score = front_object.return_snow_score(time)
 
-print("The snow score is: ", snow_score)    
+#print("The snow score is: ", snow_score)    
 
-#print(surf_score)
+#print("The surf score is: ", surf_score)
+
+front_object.return_snow_score(time)

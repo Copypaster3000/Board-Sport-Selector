@@ -3,16 +3,16 @@ import json
 import report_score
 import condition
 
-# This class is desinged to get surf report data from surfpy and store it in a variable passed into it
+#This class gets surf data through api calls and returns surf conditions score for given time period
 
 class surf_report():
 
     def __init__(self):
         #condition for each hour in current 24 hr period
         #weight, importance out of 100
-        #boundaries, between [2] & [3] = perfect, betweeen [1] & [4] = great, between [0] & [5] = good enoough, outside [0] & [5] = terrible
+        #boundaries, between [2] & [3] = perfect, between [1] & [4] = great, between [0] & [5] = good enough, outside [0] & [5] = terrible
 
-        self.forecast_fetched = False #Initalize as forecast not yet gotten when class object is made
+        self.forecast_fetched = False #Initialize as forecast not yet gotten when class object is made
 
         self.temperature = condition.condition()
         self.temperature.weight = 20.0
@@ -43,7 +43,7 @@ class surf_report():
 
     
 
-    #gets surfing conditons from api and stores data in class members
+    #gets surfing conditions from api and stores data in class members
     def get_forecast(self):
         #current api calls contain more information than is utalized 
         cannon_beach_weather_api = 'https://api.open-meteo.com/v1/forecast?latitude=45.8918&longitude=-123.9615&hourly=temperature_2m,precipitation,cloudcover,visibility,windspeed_10m,winddirection_10m&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,windgusts_10m_max&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&forecast_days=1'
@@ -78,13 +78,14 @@ class surf_report():
         print("Hourly wind direction: ", self.wind_direction.weather) 
         '''
 
+    #Makes sure forecast has been fetched and stored in class member
     def ensure_forecast_fetched(self):
         if not self.forecast_fetched:
             self.get_forecast()
 
 
     def return_surf_score(self, time):
-        self.ensure_forecast_fetched() #Makes sure forecast has been fetched and stored in class memebers
+        self.ensure_forecast_fetched() #Makes sure forecast has been fetched and stored in class member
 
         score = 0
 

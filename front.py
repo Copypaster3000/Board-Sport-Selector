@@ -45,3 +45,6 @@ class front():
 
         return snow_object.return_snow_score(time)
 
+    def return_kite_score(self, time):
+        kite_object = kite_report.get_forecast()
+

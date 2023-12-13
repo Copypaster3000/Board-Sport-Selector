@@ -34,6 +34,7 @@ class snow_report():
         self.visibility.boundaries = [5000, 15000, 20000, 200000, 20000, 15000]
         self.wind_speed = condition.condition()
         self.wind_speed.weight = 15
+        self.wind_speed.boundaries = [10, 5, 0, 5, 10, 15]
 
 
     def get_forecast(self, time):
@@ -81,7 +82,7 @@ class snow_report():
         for hour in snowfall.weather[11+time[0]:23+time[0]]:
             fresh_snow_depth += hour
         
-        #sets each elemnt in this condition to fresh snow depth at the start of the session to be rated properly by scoring function
+        #sets each element in this condition to fresh snow depth at the start of the session to be rated properly by scoring function
         for hour in snowfall.weather[0:47]:
             hour = fresh_snow_depth
             
