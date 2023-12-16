@@ -30,26 +30,26 @@ class kite_report():
         self.wind_direction.weight = 20.0
         self.wind_direction.boundaries = [315.0, 45.0, 45.0, 225.0, 225.0, 45.0]
         
-#gets kite conditions from api and stores data in class members
-def get_forecast(self):   
-    
-    hood_river_kite_api = 'https://api.open-meteo.com/v1/forecast?latitude=45.7054&longitude=-121.5215&hourly=temperature_2m,precipitation,cloud_cover,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&past_days=1&forecast_days=1'
-    weather_response = requests.get(hood_river_kite_api) #makes the api call
-    weather_json = weather_response.json() #puts data into json format
+    #gets kite conditions from api and stores data in class members
+    def get_forecast(self):   
+        
+        hood_river_kite_api = 'https://api.open-meteo.com/v1/forecast?latitude=45.7054&longitude=-121.5215&hourly=temperature_2m,precipitation,cloud_cover,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&past_days=1&forecast_days=1'
+        weather_response = requests.get(hood_river_kite_api) #makes the api call
+        weather_json = weather_response.json() #puts data into json format
 
-    self.temperature.weather = weather_json["hourly"]["temperature_2m"] #oragnizes data from api calls into class members
-    self.precipitation.weather = weather_json["hourly"]["precipitation"]
-    self.cloud_cover.weather = weather_json["hourly"]["cloud_cover"]
-    self.wind_speed.weather = weather_json["hourly"]["wind_speed_10m"]
-    self.wind_direction.weather = weather_json["hourly"]["wind_direction_10m"]
+        self.temperature.weather = weather_json["hourly"]["temperature_2m"] #organizes data from api calls into class members
+        self.precipitation.weather = weather_json["hourly"]["precipitation"]
+        self.cloud_cover.weather = weather_json["hourly"]["cloud_cover"]
+        self.wind_speed.weather = weather_json["hourly"]["wind_speed_10m"]
+        self.wind_direction.weather = weather_json["hourly"]["wind_direction_10m"]
 
-    self.forecast_fetched = True #Shows that forecast has been gotten and stored in class members
+        self.forecast_fetched = True #Shows that forecast has been gotten and stored in class members
 
-    #print(weather_json)
+        #print(weather_json)
 
-    print("Hourly temperature: ", self.temperature.weather)
-    print("Hourly precipitation: ", self.precipitation.weather)
-    print("Hourly cloud cover: ", self.cloud_cover.weather)
-    print("Hourly wind speed: ", self.wind_speed.weather)   
-    print("Hourly wind direction: ", self.wind_direction.weather)
+        print("Hourly temperature: ", self.temperature.weather)
+        print("Hourly precipitation: ", self.precipitation.weather)
+        print("Hourly cloud cover: ", self.cloud_cover.weather)
+        print("Hourly wind speed: ", self.wind_speed.weather)   
+        print("Hourly wind direction: ", self.wind_direction.weather)
 

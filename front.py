@@ -4,6 +4,7 @@
 
 import surf_report
 import snow_report
+import kite_report
 
 class front():
 
@@ -46,5 +47,6 @@ class front():
         return snow_object.return_snow_score(time)
 
     def return_kite_score(self, time):
-        kite_object = kite_report.get_forecast()
+        kite_object = kite_report.kite_report()
+        kite_object.get_forecast()
 
