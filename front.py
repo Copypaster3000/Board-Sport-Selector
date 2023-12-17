@@ -60,3 +60,23 @@ class front():
 
         return skate_object.return_skate_score(time)
 
+
+    #Returns the sport that has the highest score
+    def highest_score(self, surf_score, snow_score, kite_score, skate_score):
+        highest_score = -100
+        sport = ""
+
+        if surf_score > highest_score:
+            highest_score = surf_score
+            sport = "surfing"
+        if snow_score > highest_score:
+            highest_score = snow_score
+            sport = "snowboarding"
+        if kite_score > highest_score:
+            highest_score = kite_score
+            sport = "kiteboarding"
+        if skate_score > highest_score:
+            highest_score = skate_score
+            sport = "skateboarding"
+
+        return sport
