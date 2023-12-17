@@ -46,10 +46,31 @@ class kite_report():
         self.forecast_fetched = True #Shows that forecast has been gotten and stored in class members
 
         #print(weather_json)
-
+        '''
         print("Hourly temperature: ", self.temperature.weather)
         print("Hourly precipitation: ", self.precipitation.weather)
         print("Hourly cloud cover: ", self.cloud_cover.weather)
         print("Hourly wind speed: ", self.wind_speed.weather)   
         print("Hourly wind direction: ", self.wind_direction.weather)
+            '''
 
+    #Makes sure forecast has been fetched and stored in class members
+    def ensure_forecast_fetched(self):
+        if not self.forecast_fetched:
+            self.get_forecast()
+
+
+    def return_kite_score(self, time):
+        self.ensure_forecast_fetched()
+
+        score = 0
+
+        score_object = report_score.report_score()
+
+        score += score_object.get_score(self.temperature, time)
+        score += score_object.get_score(self.precipitation, time)
+        score += score_object.get_score(self.cloud_cover, time)
+        score += score_object.get_score(self.wind_speed, time)
+        score += score_object.get_score(self.wind_direction, time)
+
+        return score

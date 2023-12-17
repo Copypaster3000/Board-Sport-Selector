@@ -48,5 +48,6 @@ class front():
 
     def return_kite_score(self, time):
         kite_object = kite_report.kite_report()
-        kite_object.get_forecast()
+        
+        return kite_object.return_kite_score(time)
 

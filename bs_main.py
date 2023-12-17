@@ -19,4 +19,6 @@ time = front_object.get_session()
 
 #print("The surf score is: ", surf_score)
 
-front_object.return_kite_score(time)
+kite_score = front_object.return_kite_score(time)
+
+print("The kite score is: ", kite_score)   
