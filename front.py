@@ -5,6 +5,7 @@
 import surf_report
 import snow_report
 import kite_report
+import skate_report
 
 class front():
 
@@ -41,13 +42,21 @@ class front():
 
         return surf_object.return_surf_score(time) #Returns surf rating
 
+
     def return_snow_score(self, time):
         snow_object = snow_report.snow_report()
 
         return snow_object.return_snow_score(time)
 
+
     def return_kite_score(self, time):
         kite_object = kite_report.kite_report()
         
         return kite_object.return_kite_score(time)
+
+
+    def return_skate_score(self, time):
+        skate_object = skate_report.skate_report()
+
+        return skate_object.return_skate_score(time)
 
