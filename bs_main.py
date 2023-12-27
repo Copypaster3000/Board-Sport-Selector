@@ -16,4 +16,4 @@ skate_score = front_object.return_skate_score(time)
 #print("The kite score is: ", kite_score)   
 #print("The skate score is: ", skate_score)
 
-print("The best sport today for the time period you entered is ", front_object.highest_score(surf_score, snow_score, kite_score, skate_score))
+print("The best sport today for the time period you entered is", front_object.highest_score(surf_score, snow_score, kite_score, skate_score))
